@@ -49,7 +49,7 @@ const showPets = function (allPets) {
       status = "sleeping";
     }
     const li = document.createElement("li");
-    li.innerText = `${pet.name} the ${pet.species} is ${status}.`;
+    li.innerHTML = `<span class="pet-name">${pet.name}</span> the ${pet.species} is ${status}.`;
     pets.append(li);
   }
 };
@@ -57,3 +57,4 @@ const showPets = function (allPets) {
 statusButton.addEventListener("click", function () {
   showPets(allPets);
 });
+
