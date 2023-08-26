@@ -25,9 +25,11 @@ const createPet = function (name, species) {
 
 const sora = createPet("Sora", "ferret");
 const clover = createPet("Clover", "rabbit");
+clover.isTired = 8;
 const baxter = createPet("Baxter", "hamster");
 const cleo = createPet("Cleo", "rat");
 const francine = createPet("Francine", "turtle");
+francine.isTired = 9;
 
 //console.log(sora, clover, baxter, cleo, francine);
 
@@ -36,3 +38,22 @@ const francine = createPet("Francine", "turtle");
 
 //console.log(clover);
 //console.log(baxter);
+const allPets = [sora, clover, baxter, cleo, francine];
+//console.log(allPets);
+
+const showPets = function (allPets) {
+  pets.innerHTML = "";
+  for (const pet of allPets) {
+    let status = "ready to play";
+    if (pet.isTired >= 7) {
+      status = "sleeping";
+    }
+    const li = document.createElement("li");
+    li.innerText = `${pet.name} the ${pet.species} is ${status}.`;
+    pets.append(li);
+  }
+};
+
+statusButton.addEventListener("click", function () {
+  showPets(allPets);
+});
